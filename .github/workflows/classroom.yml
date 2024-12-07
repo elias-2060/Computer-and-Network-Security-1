@@ -1,0 +1,27 @@
+name: Autograding Tests
+on:
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: self-hosted
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: testing
+      run: |
+        cd ../../
+        echo 'WORKDIR=${{ github.event.repository.name }}/${{ github.event.repository.name }}' > .env
+        echo 'GROUP=${{ github.event.repository.name }}' >> .env
+        docker compose up --build
+        docker cp test:/test/student_test_logs/task1_clean/log_file_group1.txt ${{ github.event.repository.name }}/${{ github.event.repository.name }}/test_logs.txt
+        docker compose down
+    - name: upload result
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs
+        path: test_logs.txt
