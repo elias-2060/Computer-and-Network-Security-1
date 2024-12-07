@@ -1,7 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/CPcSkqu9)
-# Group
-Group-11: Elias El Bouzidi, Riwaaz Ranabhat
-
 # Setup
 There are three containers; Client, Flaskr and Student, that are connected by a bridge network named `cns`
   * **Client**: a container with Firefox running on it. To access Firefox from host, connect via `http://localhost:5800`.
