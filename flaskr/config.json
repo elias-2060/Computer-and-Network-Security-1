@@ -1,0 +1,16 @@
+{
+    "encryption": {
+        "methods": ["aes256cbc", "salsa20"],
+        "keyid": "01",
+        "keys": {
+           "01": "../implementation/preshared_key.txt"
+        }
+    },
+    "mac": {
+        "methods": ["sha1", "sha512hmac"],
+        "keyid": "01",
+        "keys": {
+           "01": "../implementation/preshared_key.txt"
+        }
+    }
+}

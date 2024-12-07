@@ -1,0 +1,4 @@
+You can add as many files in the implementation folder as you want.
+You can add functions to these files or the given files as you wish. UNLESS you are told not to do so.
+You cannot change the given function names, parameters, parameter types, return types, etc.
+You cannot change the location of the given files.

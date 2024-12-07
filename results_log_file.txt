@@ -1,0 +1,77 @@
+Total grade: 90.3% 
+
+Report weight 3/10 - Code weight 7/10
+The weights of each category is indicated in the brackets behind it. The total % of the group indicates the total weight.
+Example -> Category X: 80.1% (2) ; Total: 91.0% (12) -> Category X counts for 17% (2/12) of the total.
+
+Report remarks: Reason(s) for hashing keys not provided in AES, no mention of the content-encoding header, no explanation for mitm
+Report - AES: 90.0% (1.0)
+Report - Salsa: 100.0% (1.0)
+Report - Encryption: 100.0% (2.0)
+Report - SHA1: 100.0% (1.0)
+Report - HMAC: 100.0% (1.0)
+Report - Authentication: 100.0% (2.0)
+Report - Man-in-the-Middle: 0.0% (2.0)
+Report - Used Algorithm: 80.0% (1.0)
+Report - Total: 79.1% (11.0)
+Code - String To Auth: 100.0% (1.0)
+Code - AES: 100.0% (1.0)
+Code - ClientGETAuth: 100.0% (2.0)
+Code - ClientGETEncry: 100.0% (2.0)
+Code - ClientPOSTEncry: 100.0% (2.0)
+Code - HMAC: 85.7% (2.0)
+Code - SHA1: 85.7% (1.0)
+Code - Salsa: 100.0% (2.0)
+Code - ServerGETAuth: 100.0% (2.0)
+Code - ServerGETEncry: 91.7% (2.0)
+Code - ServerPOSTAuth: 90.0% (2.0)
+Code - ClientPOSTAuth: 90.9% (2.0)
+Code - ServerPOSTEncry: 92.9% (2.0)
+Code - Total: 95.1% (23.0)
+
+..........................................F..............F.........F..............................F..................F.F......................
+======================================================================
+FAIL: test_order_auth_encrypt_different (test.task1.test_authentication_post_client.ClientPOSTAuthenticationTest)
+----------------------------------------------------------------------
+AssertionError: 13 not less than 12
+Testing if the order of the encryption and authentication specified in the config influences the result.
+
+======================================================================
+FAIL: test_mac_different_key (test.task1.test_hmac.HMACTest)
+----------------------------------------------------------------------
+IndexError: index out of range
+
+During handling of the above exception, another exception occurred:
+
+AssertionError: Testing mac generation using a different key. Exception: index out of range
+
+======================================================================
+FAIL: test_mac_long_nonce (test.task1.test_sha1.SHA1Test)
+----------------------------------------------------------------------
+AssertionError: 'e44fb9ff99d988bfd209b1ca530b38bbea5c1ac4' != '94799964def8851ac13c2fb220369b283eacee07'
+- e44fb9ff99d988bfd209b1ca530b38bbea5c1ac4
++ 94799964def8851ac13c2fb220369b283eacee07
+Testing mac generation with a too long nonce.
+
+======================================================================
+FAIL: test_accept_encoding_content (test.task1.test_encryption_get_server.ServerGETEncryptionTest)
+----------------------------------------------------------------------
+AssertionError: 'Accept-Encoding' not found in Headers[(b'Server', b'Werkzeug/3.0.3 Python/3.10.8'), (b'Date', b'Thu, 22 Aug 2024 08:53:18 GMT'), (b'Content-Type', b'text/html; charset=utf-8'), (b'Content-Length', b'1584'), (b'Vary', b'Cookie'), (b'Set-Cookie', b'session=eyJsb2dnZWRfaW4iOiJ1MSJ9.Zsb8fg.a3PhQSFZjY1iL0CS-ccZz-iiqfU; HttpOnly; Path=/'), (b'Connection', b'close'), (b'Authorization', b'sha1 keyid="01", nonce="u8YA5UekySknWFqh", headers="Authorization;Connection;Content-Length;Content-Type;Date;Server;Set-Cookie;Vary;X-Authorization-Timestamp", mac="d000d5acbdf0aa3bf02ad6441aecdaff82528397"'), (b'X-Authorization-Timestamp', b'1730845381'), (b'Content-Encoding', b'aes256cbc'), (b'Encryption', b'keyid="01", nonce="u8YA5UekySknWFqh"')]
+Testing if the Accept-Encoding header is edited correctly in the respone. - Not present and thus not used
+
+======================================================================
+FAIL: test_order_auth_encrypt_different (test.task1.test_authentication_post_server.ServerPOSTAuthenticationTest)
+----------------------------------------------------------------------
+AssertionError: 10 not less than 9
+Testing if the order of the encryption and authentication specified in the config influences the result.
+
+======================================================================
+FAIL: test_accept_encoding_content (test.task1.test_encryption_post_server.ServerPOSTEncryptionTest)
+----------------------------------------------------------------------
+AssertionError: 'Accept-Encoding' not found in Headers[(b'Server', b'Werkzeug/2.3.7 Python/3.10.8'), (b'Date', b'Sat, 04 Nov 2023 20:38:36 GMT'), (b'Content-Type', b'text/html; charset=utf-8'), (b'Content-Length', b'192'), (b'Location', b'/'), (b'Vary', b'Cookie'), (b'Set-Cookie', b'session=eyJfZmxhc2hlcyI6W3siIHQiOlsibWVzc2FnZSIsIllvdSB3ZXJlIGxvZ2dlZCBpbiBhcyB1MSJdfV0sImxvZ2dlZF9pbiI6InUxIn0.ZUarzA.go6dk2ouTUJKcGCqV-53bW02p40; HttpOnly; Path=/'), (b'Connection', b'close'), (b'Authorization', b'sha1 keyid="01", nonce="END82FmZyjyDCuRG", headers="Authorization;Connection;Content-Length;Content-Type;Date;Location;Server;Set-Cookie;Vary;X-Authorization-Timestamp", mac="29ae54798185d0d27aa415501abfdfae78a03601"'), (b'X-Authorization-Timestamp', b'1730845381'), (b'Content-Encoding', b'aes256cbc'), (b'Encryption', b'keyid="01", nonce="END82FmZyjyDCuRG"')]
+Testing if the Accept-Encoding header is edited correctly in the respone. - Not present and thus not used
+
+----------------------------------------------------------------------
+
+FAILED (failures=6)
+
